@@ -4,6 +4,9 @@ body {
   background-attachment: fixed;
   background-position: 50% 50%;
 }
+a:hover {
+  color: #00bfff;
+}
 #footer a {
   color: #eee;
 }
@@ -1832,7 +1835,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f216cd;
+  background: #fffb7a;
 }
 .links-of-blogroll {
   font-size: 13px;
