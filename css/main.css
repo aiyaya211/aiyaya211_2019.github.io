@@ -1102,7 +1102,7 @@ pre .javascript .function {
   bottom: 30px;
 }
 .header {
-  background: transparent;
+  background: url("../image/avator.jpeg");
 }
 .header-inner {
   position: relative;
@@ -1835,7 +1835,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #34f2ff;
+  background: #ff4744;
 }
 .links-of-blogroll {
   font-size: 13px;
