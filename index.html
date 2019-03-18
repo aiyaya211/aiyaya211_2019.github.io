@@ -305,6 +305,9 @@
 <p>因为是全局的，经常会报权限错误，所以一般用 <em>sudo</em></p>
 <p>接下来，就可以开始建站了，在本地新建一个文件夹，hexo初始化这个文件夹，并安装依赖包</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir myblog</span><br><span class="line">$ <span class="built_in">cd</span> myblog</span><br><span class="line">$ hexo init</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>接下来，用hexo的启动命令，就可以在本地把我的博客跑起来啦！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
+<p>效果如图（不过这个是我之后已经开始写博客之后的了）<br><img src="/2019/03/17/hexo博客搭建过程/2.jpg" alt="本地环境运行"></p>
+<p>为了执行方便，我把本地启动的两个脚本放到了<code>package.json</code>里面，运行的时候只要执行一个命令就可以了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run dev</span><br></pre></td></tr></table></figure></p>
 
           
         
