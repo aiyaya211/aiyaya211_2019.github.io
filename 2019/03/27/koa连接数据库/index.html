@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://poz39fwk4.bkt.clouddn.com/mysql2.jpg">
 <meta property="og:image" content="http://poz39fwk4.bkt.clouddn.com/mysql3.jpg">
 <meta property="og:image" content="http://poz39fwk4.bkt.clouddn.com/mysql4.jpg">
-<meta property="og:updated_time" content="2019-04-02T13:29:36.428Z">
+<meta property="og:updated_time" content="2019-04-02T13:32:21.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="koa连接数据库">
 <meta name="twitter:description" content="现在node的服务端能顺利的跑起来了，处理数据还需要连接数据库，所以决定在pc上装一下mysql。在官网下载mysql的安装包，执行安装，一步一步往下操作就可以了，需要注意的是弹窗会提示mysql的初始密码，需要我们记住，不然后续找回密码很麻烦。 安装之后，在系统偏好设置中找到mysql服务 接下来去命令行进入mysql1$ mysql -u root -p 报错了1-bash: mysql: c">
@@ -342,7 +342,8 @@
 <p>环境变量没有配置好，进入目录 <code>/usr/local/mysql/bin</code><br>修改<code>.bash_profile</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
 <p>修改之后保存(<code>esc</code> 之后 <code>:wq</code>)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
 <p>再试一下连接登陆<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root -p</span><br></pre></td></tr></table></figure></p>
-<p>ok啦</p>
+<p>ok啦<br>顺便我把初始密码给改了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ SET PASSWORD = PASSWORD(<span class="string">'123456'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>接下去要做的就是<code>koa</code>连接上数据库</p>
 
       
     </div>
