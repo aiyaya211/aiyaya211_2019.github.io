@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="关于我….">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="最近在看《你不知道的js（中）》这本书，大半本书就是讲的js的异步机制，今天翻node.js也有讲到事件循环和异步机制，那就放一起做个总结。JavaScript是一门单线程语言，在w3的官网，对于事件循环的定义是：  To coordinate events, user interaction, scripts, rendering, networking, and so forth, user">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript事件循环">
+<meta property="og:url" content="http://yoursite.com/2019/04/03/JavaScript事件循环/index.html">
 <meta property="og:site_name" content="哎呀呀">
-<meta property="og:description" content="关于我….">
+<meta property="og:description" content="最近在看《你不知道的js（中）》这本书，大半本书就是讲的js的异步机制，今天翻node.js也有讲到事件循环和异步机制，那就放一起做个总结。JavaScript是一门单线程语言，在w3的官网，对于事件循环的定义是：  To coordinate events, user interaction, scripts, rendering, networking, and so forth, user">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-23T01:57:36.308Z">
+<meta property="og:updated_time" content="2019-04-03T13:32:07.911Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="关于我….">
+<meta name="twitter:title" content="JavaScript事件循环">
+<meta name="twitter:description" content="最近在看《你不知道的js（中）》这本书，大半本书就是讲的js的异步机制，今天翻node.js也有讲到事件循环和异步机制，那就放一起做个总结。JavaScript是一门单线程语言，在w3的官网，对于事件循环的定义是：  To coordinate events, user interaction, scripts, rendering, networking, and so forth, user">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/03/JavaScript事件循环/">
 
 
 
 
 
-  <title>about | 哎呀呀</title>
+  <title>JavaScript事件循环 | 哎呀呀</title>
   
 
 
@@ -240,34 +241,158 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/JavaScript事件循环/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aiyaya">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avator.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哎呀呀">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>关于我….</p>
-
+          <h1 class="post-title" itemprop="name headline">JavaScript事件循环</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-03T19:34:20+08:00">
+                2019-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/03/JavaScript事件循环/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/03/JavaScript事件循环/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>最近在看《你不知道的js（中）》这本书，大半本书就是讲的js的异步机制，今天翻<code>node.js</code>也有讲到事件循环和异步机制，那就放一起做个总结。<br><code>JavaScript</code>是一门单线程语言，在<code>w3</code>的官网，对于事件循环的定义是：</p>
+<blockquote>
+<p>To coordinate events, user interaction, scripts, rendering, networking, and so forth, user agents must use event loops as described in this section. There are two kinds of event loops: those for browsing contexts, and those for workers.</p>
+</blockquote>
+<p>先看一个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'A'</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'B'</span>)</span><br><span class="line">&#125;, <span class="number">1000</span> );</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'C'</span>)</span><br><span class="line">	resolve(<span class="string">'D'</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> <span class="built_in">console</span>.log(res)).then(<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(<span class="string">'E'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'F'</span>)</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/27/koa连接数据库/" rel="next" title="koa连接数据库">
+                <i class="fa fa-chevron-left"></i> koa连接数据库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
