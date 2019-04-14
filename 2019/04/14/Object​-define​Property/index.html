@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="哎呀呀">
-<meta property="og:url" content="http://yoursite.com/archives/2019/04/index.html">
+<meta name="description" content="最近开始看vue.js的原理以及源码（真的是没有无缘无故去读源码，为了面试也好，为了和框架知已知彼也好，多学点总没错的吧😂），关于数据侦听这块，vue.js主要是用了Object​.define​Property()不过Object​.define​Property()也存在很多缺陷，但是对这个属性方法不熟悉的我，阅读源码时遇到了很多不便利，查了网上资料，自己整理一下Object​.define">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Object​.define​Property()">
+<meta property="og:url" content="http://yoursite.com/2019/04/14/Object​-define​Property/index.html">
 <meta property="og:site_name" content="哎呀呀">
+<meta property="og:description" content="最近开始看vue.js的原理以及源码（真的是没有无缘无故去读源码，为了面试也好，为了和框架知已知彼也好，多学点总没错的吧😂），关于数据侦听这块，vue.js主要是用了Object​.define​Property()不过Object​.define​Property()也存在很多缺陷，但是对这个属性方法不熟悉的我，阅读源码时遇到了很多不便利，查了网上资料，自己整理一下Object​.define">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-14T05:05:38.400Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="哎呀呀">
+<meta name="twitter:title" content="Object​.define​Property()">
+<meta name="twitter:description" content="最近开始看vue.js的原理以及源码（真的是没有无缘无故去读源码，为了面试也好，为了和框架知已知彼也好，多学点总没错的吧😂），关于数据侦听这块，vue.js主要是用了Object​.define​Property()不过Object​.define​Property()也存在很多缺陷，但是对这个属性方法不熟悉的我，阅读源码时遇到了很多不便利，查了网上资料，自己整理一下Object​.define">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/04/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/14/Object​-define​Property/">
 
 
 
 
 
-  <title>Archive | 哎呀呀</title>
+  <title>Object​.define​Property() | 哎呀呀</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,212 +239,166 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/14/Object​-define​Property/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aiyaya">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avator.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哎呀呀">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Object​.define​Property()</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-14T12:24:10+08:00">
+                2019-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        Um..! 13 posts in total. Keep on posting.
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/14/Object​-define​Property/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/14/Object​-define​Property/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/14/Object​-define​Property/" itemprop="url">
-              
-                <span itemprop="name">Object​.define​Property()</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-14T12:24:10+08:00" content="2019-04-14">
-          04-14
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/12/防抖和节流/" itemprop="url">
-              
-                <span itemprop="name">防抖和节流</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-12T20:21:17+08:00" content="2019-04-12">
-          04-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/09/如何进行手机浏览器调试/" itemprop="url">
-              
-                <span itemprop="name">如何进行手机浏览器调试</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-09T22:38:35+08:00" content="2019-04-09">
-          04-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/08/vue渲染函数/" itemprop="url">
-              
-                <span itemprop="name">vue渲染函数</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-08T18:59:34+08:00" content="2019-04-08">
-          04-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>最近开始看<code>vue.js</code>的原理以及源码（真的是没有无缘无故去读源码，为了面试也好，为了和框架知已知彼也好，多学点总没错的吧😂），关于数据侦听这块，<code>vue.js</code>主要是用了<code>Object​.define​Property()</code><br>不过<code>Object​.define​Property()</code>也存在很多缺陷，但是对这个属性方法不熟悉的我，阅读源码时遇到了很多不便利，查了网上资料，自己整理一下<code>Object​.define​Property()</code>的用法<br><code>Object​.define​Property()</code>用于在一个对象上新增属性或者修改已有属性，举个🌰<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myObj = &#123;</span><br><span class="line">		name: <span class="string">'aiyaya'</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">let</span> newObj = <span class="built_in">Object</span>.defineProperty(myObj, <span class="string">'age'</span>, &#123;</span><br><span class="line">		value: <span class="number">18</span></span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="built_in">console</span>.log(myObj)   <span class="comment">// &#123;name: "aiyaya", age: 18&#125;</span></span><br><span class="line">	<span class="built_in">console</span>.log(newObj)   <span class="comment">// &#123;name: "aiyaya", age: 18&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>对象的属性描述符（就是对象属性的属性）一般分为两种，一种就是数据属性描述符（属性的读写属性一类），另一种就是存取描述符（给属性修改值或者获取属性值），<br>主要看存取描述符：<br><strong>get</strong></p>
+<blockquote>
+<p>一个给属性提供 getter 的方法，如果没有 getter 则为 undefined。当访问该属性时，该方法会被执行，方法执行时没有参数传入，但是会传入this对象（由于继承关系，这里的this并不一定是定义该属性的对象）。<br>     默认为<code>undefined</code>。</p>
+</blockquote>
+<p><strong>set</strong></p>
+<blockquote>
+<p>一个给属性提供 setter 的方法，如果没有 setter 则为 undefined。当属性值修改时，触发执行该方法。该方法将接受唯一参数，即该属性新的参数值。<br> 默认为 undefined。</p>
+</blockquote>
+<p>试用一下<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> oldValue = <span class="number">18</span></span><br><span class="line">	<span class="keyword">let</span> myObj = &#123;</span><br><span class="line">		name: <span class="string">'aiyaya'</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">let</span> newObj = <span class="built_in">Object</span>.defineProperty(myObj, <span class="string">'age'</span>, &#123;</span><br><span class="line">		<span class="keyword">get</span>: function() &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">'get'</span>)</span><br><span class="line">			<span class="keyword">return</span> oldValue</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="keyword">set</span>: function(newValue) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">'set'</span>)</span><br><span class="line">			oldValue = newValue</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="built_in">console</span>.log(newObj.age) <span class="comment">// get 18</span></span><br><span class="line">	newObj.age = <span class="number">20</span>; <span class="comment">// set</span></span><br></pre></td></tr></table></figure></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/03/JavaScript事件循环/" itemprop="url">
-              
-                <span itemprop="name">JavaScript事件循环</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-03T19:34:20+08:00" content="2019-04-03">
-          04-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/12/防抖和节流/" rel="next" title="防抖和节流">
+                <i class="fa fa-chevron-left"></i> 防抖和节流
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -447,6 +406,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -680,6 +646,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
