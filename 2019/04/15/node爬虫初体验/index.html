@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="哎呀呀">
 <meta property="og:description" content="今天被问到，怎么爬B站的视频链接，问我的大哥用的python，我就用node来试试。看了眼B站的网页代码，是用的jquery实现的。首先要安装两个node的依赖包1$ npm install superagent cheerio --save superagent主要用于向网页发起http请求  Small progressive client-side HTTP request library,">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-15T14:35:33.102Z">
+<meta property="og:updated_time" content="2019-04-15T15:21:16.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node爬虫初体验">
 <meta name="twitter:description" content="今天被问到，怎么爬B站的视频链接，问我的大哥用的python，我就用node来试试。看了眼B站的网页代码，是用的jquery实现的。首先要安装两个node的依赖包1$ npm install superagent cheerio --save superagent主要用于向网页发起http请求  Small progressive client-side HTTP request library,">
@@ -340,7 +340,7 @@
 <p>Fast, flexible &amp; lean implementation of core jQuery designed specifically for the server.</p>
 </blockquote>
 <p>代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> superagent = <span class="built_in">require</span>(<span class="string">'superagent'</span>);</span><br><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reptileUrl = <span class="string">"https://www.bilibili.com/"</span>;</span><br><span class="line"></span><br><span class="line">superagent.get(reptileUrl).end(<span class="function"><span class="keyword">function</span> (<span class="params">err, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="keyword">throw</span> err;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> $ = cheerio.load(res.text);</span><br><span class="line">    $(<span class="string">"a"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">i, e</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log($(e).attr(<span class="string">"href"</span>));</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>因为要的是视频链接，而且源码里<code>&lt;a&gt;</code>没有加<code>class</code>或者<code>id</code>所以直接取的<code>&lt;a&gt;</code>标签的<code>href</code>属性，简单粗暴<br>结果如下：</p>
+<p>因为要的是视频链接，而且源码里<code>&lt;a&gt;</code>没有加<code>class</code>或者<code>id</code>所以直接取的<code>&lt;a&gt;</code>标签的<code>href</code>属性，简单粗暴</p>
 
       
     </div>
