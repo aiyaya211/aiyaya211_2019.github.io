@@ -1942,7 +1942,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d14616;
+  background: #65744a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3111,5 +3111,5 @@ img:hover {
   }
 }
 body {
-  background: url("http://poz39fwk4.bkt.clouddn.com/background.png");
+  background: url("./public/imagges/background.png");
 }
