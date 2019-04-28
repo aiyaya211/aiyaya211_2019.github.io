@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="哎呀呀">
 <meta property="og:description" content="最近在看《你不知道的js（中）》这本书，大半本书就是讲的js的异步机制，今天翻node.js也有讲到事件循环和异步机制，那就放一起做个总结。JavaScript是一门单线程语言，在w3的官网，对于事件循环的定义是：  To coordinate events, user interaction, scripts, rendering, networking, and so forth, user">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-28T11:40:32.493Z">
+<meta property="og:updated_time" content="2019-04-28T12:01:23.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript事件循环">
 <meta name="twitter:description" content="最近在看《你不知道的js（中）》这本书，大半本书就是讲的js的异步机制，今天翻node.js也有讲到事件循环和异步机制，那就放一起做个总结。JavaScript是一门单线程语言，在w3的官网，对于事件循环的定义是：  To coordinate events, user interaction, scripts, rendering, networking, and so forth, user">
@@ -337,6 +337,19 @@
 <p>先看一个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'A'</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'B'</span>)</span><br><span class="line">&#125;, <span class="number">1000</span> );</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'C'</span>)</span><br><span class="line">	resolve(<span class="string">'D'</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> <span class="built_in">console</span>.log(res)).then(<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(<span class="string">'E'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'F'</span>)</span><br></pre></td></tr></table></figure></p>
 <p>放在浏览器中执行一下这段代码，执行结果是<br><em>A C F D E B</em></p>
 <p>JavaScript中任务分为同步任务和异步任务，同步任务指的是立即执行的任务，异步任务指的是相对比较耗时的任务，像请求后台资源等操作，同步任务一般都在JavaScript的主线程中，异步任务则在任务队列中等待，当主线程中的同步任务执行完成，依次执行任务队列中的事件。<br>异步任务又分为<code>微任务</code>和<code>宏任务</code>，这两种任务分别在各自的队列中，当主线程中的同步任务执行完之后，再依次从队列中取出宏任务和微任务执行，再执行宏任务之前需要先清空微任务队列。<br>那，微任务和宏任务又包括哪些呢？</p>
+<blockquote>
+<blockquote>
+<p>宏任务（micro-task）主要是：script代码段、setTimeout、setInterval、Promise的构造函数是同步的、setImmediate、I/O、UIrendering<br>微任务（macro-task）主要是：Promise的回调、process.nextTick</p>
+</blockquote>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'s1'</span>)</span><br><span class="line">    <span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'p1'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'s2'</span>)</span><br><span class="line">    <span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'p2'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>就用上面的逻辑来看下这段代码的执行逻辑</p>
+<ol>
+<li>代码进来遇到第一个<code>setTimeout</code>是异步任务，进入宏队列，同时又有一个<code>promise.then（）</code>是微任务，进入微队列</li>
+<li>继续往下走遇到第二个<code>setTimeout</code>也是异步任务，它执行一个<code>s2</code>，进入宏队列，然后<code>p2</code>进入微队列==这里注意是有先后顺序的区分的==</li>
+<li><code>s1</code>先从宏队列出来进入主线程栈，再出栈，所以先打印<code>s1</code></li>
+<li>往下走宏队列里面是<code>s2</code>，但是记住执行宏任务前先清空微任务队列，所以接下去是<code>p1</code>，再之后<code>s2</code>和<code>p2</code>按照顺序</li>
+</ol>
 
       
     </div>
