@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="哎呀呀">
 <meta property="og:description" content="最近在看《你不知道的js（中）》这本书，大半本书就是讲的js的异步机制，今天翻node.js也有讲到事件循环和异步机制，那就放一起做个总结。JavaScript是一门单线程语言，在w3的官网，对于事件循环的定义是：  To coordinate events, user interaction, scripts, rendering, networking, and so forth, user">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-28T12:01:23.304Z">
+<meta property="og:updated_time" content="2019-04-28T12:15:30.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript事件循环">
 <meta name="twitter:description" content="最近在看《你不知道的js（中）》这本书，大半本书就是讲的js的异步机制，今天翻node.js也有讲到事件循环和异步机制，那就放一起做个总结。JavaScript是一门单线程语言，在w3的官网，对于事件循环的定义是：  To coordinate events, user interaction, scripts, rendering, networking, and so forth, user">
@@ -350,6 +350,7 @@
 <li><code>s1</code>先从宏队列出来进入主线程栈，再出栈，所以先打印<code>s1</code></li>
 <li>往下走宏队列里面是<code>s2</code>，但是记住执行宏任务前先清空微任务队列，所以接下去是<code>p1</code>，再之后<code>s2</code>和<code>p2</code>按照顺序</li>
 </ol>
+<p>所以最后的打印顺序是 <strong>s1-&gt;p1-&gt;s2-&gt;p2</strong></p>
 
       
     </div>
