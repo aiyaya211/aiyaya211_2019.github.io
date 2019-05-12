@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="koa,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,24 +79,14 @@
 
 
 
-<meta name="description" content="平时在写demo的时候，有的情况下需要请求服务器数据，今天尝试了一下部署一个web服务用的基于Node.js的web开发框架koa 因为是基于Node.js，所以首先要检查本地环境中Node.js的版本,koa依赖 node v7.6.0 1$ node -v 然后新建目录，并且初始化项目123$ mkdir myapp$ cd myapp$ npm init 初始化的这步要留意下入口文件的设置我">
-<meta name="keywords" content="koa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="koa学习实践">
-<meta property="og:url" content="http://yoursite.com/2019/03/22/koa学习实践/index.html">
+<meta property="og:title" content="关于路由">
+<meta property="og:url" content="http://yoursite.com/2019/05/12/关于路由/index.html">
 <meta property="og:site_name" content="哎呀呀">
-<meta property="og:description" content="平时在写demo的时候，有的情况下需要请求服务器数据，今天尝试了一下部署一个web服务用的基于Node.js的web开发框架koa 因为是基于Node.js，所以首先要检查本地环境中Node.js的版本,koa依赖 node v7.6.0 1$ node -v 然后新建目录，并且初始化项目123$ mkdir myapp$ cd myapp$ npm init 初始化的这步要留意下入口文件的设置我">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://poz39fwk4.bkt.clouddn.com/koa1.jpg">
-<meta property="og:image" content="http://poz39fwk4.bkt.clouddn.com/koa2.jpg">
-<meta property="og:image" content="http://poz39fwk4.bkt.clouddn.com/koa3.jpg">
-<meta property="og:image" content="http://poz39fwk4.bkt.clouddn.com/koa4.jpg">
-<meta property="og:image" content="http://poz39fwk4.bkt.clouddn.com/koa5.jpg">
-<meta property="og:updated_time" content="2019-03-27T12:16:06.757Z">
+<meta property="og:updated_time" content="2019-05-12T03:38:28.195Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="koa学习实践">
-<meta name="twitter:description" content="平时在写demo的时候，有的情况下需要请求服务器数据，今天尝试了一下部署一个web服务用的基于Node.js的web开发框架koa 因为是基于Node.js，所以首先要检查本地环境中Node.js的版本,koa依赖 node v7.6.0 1$ node -v 然后新建目录，并且初始化项目123$ mkdir myapp$ cd myapp$ npm init 初始化的这步要留意下入口文件的设置我">
-<meta name="twitter:image" content="http://poz39fwk4.bkt.clouddn.com/koa1.jpg">
+<meta name="twitter:title" content="关于路由">
 
 
 
@@ -126,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/22/koa学习实践/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/12/关于路由/">
 
 
 
 
 
-  <title>koa学习实践 | 哎呀呀</title>
+  <title>关于路由 | 哎呀呀</title>
   
 
 
@@ -259,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/koa学习实践/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/12/关于路由/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="aiyaya">
@@ -276,7 +266,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">koa学习实践</h1>
+          <h1 class="post-title" itemprop="name headline">关于路由</h1>
         
 
         <div class="post-meta">
@@ -288,8 +278,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-22T19:16:37+08:00">
-                2019-03-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-12T11:38:28+08:00">
+                2019-05-12
               </time>
             
 
@@ -307,8 +297,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/22/koa学习实践/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/22/koa学习实践/" itemprop="commentCount"></span>
+                <a href="/2019/05/12/关于路由/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/12/关于路由/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -336,21 +326,7 @@
       
 
       
-        <p>平时在写demo的时候，有的情况下需要请求服务器数据，今天尝试了一下部署一个web服务<br>用的基于<code>Node.js</code>的web开发框架<code>koa</code></p>
-<p>因为是基于<code>Node.js</code>，所以首先要检查本地环境中<code>Node.js</code>的版本,<code>koa</code>依赖 <code>node v7.6.0</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
-<p>然后新建目录，并且初始化项目<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir myapp</span><br><span class="line">$ <span class="built_in">cd</span> myapp</span><br><span class="line">$ npm init</span><br></pre></td></tr></table></figure></p>
-<p>初始化的这步要留意下入口文件的设置<br><img src="http://poz39fwk4.bkt.clouddn.com/koa1.jpg" alt="koa项目初始化"><br>我设置的入口文件是<code>app.js</code></p>
-<p>打开项目，新建一个 <code>app.js</code>文件 然后 安装 <code>koa</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install koa --save</span><br></pre></td></tr></table></figure></p>
-<p>然后在新建的 <code>app.js</code>中引入 <code>koa</code><br><code>app.js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">    ctx.response.type = <span class="string">'json'</span></span><br><span class="line">    ctx.response.body = &#123;</span><br><span class="line">        name: <span class="string">'aiyaya'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">app.use(main)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure></p>
-<p>执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node app.js</span><br></pre></td></tr></table></figure></p>
-<p>在浏览器中打开 <code>127.0.0.1:3000</code><br><img src="http://poz39fwk4.bkt.clouddn.com/koa2.jpg" alt="koa运行"></p>
-<p>测试一下，能不能在我的客户端中直接访问到服务器中的数据<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$http.get(<span class="string">'http://127.0.0.1:3000'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'请求结果'</span>)</span><br><span class="line">     <span class="built_in">console</span>.log(res)</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure></p>
-<p>啊哈 结果报错了<br><img src="http://poz39fwk4.bkt.clouddn.com/koa3.jpg" alt="请求报错"><br>百度了一波，这是因为跨域请求没有请求到，所以报错，需要修改一下我们的<code>app.js</code>文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 允许来自所有域名请求</span></span><br><span class="line">    ctx.set(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'*'</span>)</span><br><span class="line"></span><br><span class="line">    ctx.response.type = <span class="string">'json'</span></span><br><span class="line">    ctx.response.body = &#123;</span><br><span class="line">        name: <span class="string">'aiyaya'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">app.use(main)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>)</span><br></pre></td></tr></table></figure></p>
-<p>这下再刷新我的客户端，看一下</p>
-<p><img src="http://poz39fwk4.bkt.clouddn.com/koa4.jpg" alt="返回应答1"><br><img src="http://poz39fwk4.bkt.clouddn.com/koa5.jpg" alt="返回应答2"></p>
-<p>初次尝试，成功～ 以后需要测资源请求类的情况，就很方便啦！</p>
-
+        
       
     </div>
     
@@ -365,12 +341,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/koa/" rel="tag"># koa</a>
-          
-        </div>
-      
 
       
       
@@ -380,8 +350,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/21/关于iconfont/" rel="next" title="关于iconfont">
-                <i class="fa fa-chevron-left"></i> 关于iconfont
+              <a href="/2019/04/21/vue侦听器/" rel="next" title="vue侦听器">
+                <i class="fa fa-chevron-left"></i> vue侦听器
               </a>
             
           </div>
@@ -389,10 +359,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/27/koa连接数据库/" rel="prev" title="koa连接数据库">
-                koa连接数据库 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
