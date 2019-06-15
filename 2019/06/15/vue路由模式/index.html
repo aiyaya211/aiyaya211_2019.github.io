@@ -90,7 +90,8 @@
 <meta property="og:description" content="vue的路由模式，vue中实现前端路由主要模式有两种，hash模式和history模式。vue中路由默认使用hash模式，hash模式是基于javascript的onhashchange()方法，可以从MDN上看一下： 引用 当 一个窗口的 hash （URL 中 # 后面的部分）改变时就会触发 hashchange 事件（参见 location.hash）。    在 mozilla官网可以测试">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://aiyaya122.oss-cn-hangzhou.aliyuncs.com/routermode.gif">
-<meta property="og:updated_time" content="2019-06-15T07:35:36.522Z">
+<meta property="og:image" content="https://aiyaya122.oss-cn-hangzhou.aliyuncs.com/routermode2.gif">
+<meta property="og:updated_time" content="2019-06-15T08:13:52.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue路由模式">
 <meta name="twitter:description" content="vue的路由模式，vue中实现前端路由主要模式有两种，hash模式和history模式。vue中路由默认使用hash模式，hash模式是基于javascript的onhashchange()方法，可以从MDN上看一下： 引用 当 一个窗口的 hash （URL 中 # 后面的部分）改变时就会触发 hashchange 事件（参见 location.hash）。    在 mozilla官网可以测试">
@@ -350,7 +351,12 @@
 </blockquote>
 <p>  在 <code>mozilla</code>官网可以测试一波<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(event.oldURL, event.newURL);</span><br><span class="line">     <span class="keyword">let</span> hash = location.hash.slice(<span class="number">1</span>);</span><br><span class="line">     <span class="built_in">document</span>.body.style.color = hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>改变<code>url</code>中#后面的部分，查看效果:</p>
-<p><img src="https://aiyaya122.oss-cn-hangzhou.aliyuncs.com/routermode.gif" alt="hash模式下路由切换"></p>
+<p><img src="https://aiyaya122.oss-cn-hangzhou.aliyuncs.com/routermode.gif" alt="hash模式下路由切换"><br><code>history</code>模式主要使用了html5中的对history中栈的操作，可以看一下它的几个<code>api</code></p>
+<p>######</p>
+<blockquote>
+<p>使用 back(), forward()和 go() 方法来完成在用户历史记录中向后和向前的跳转。</p>
+</blockquote>
+<p>back()指的是向后跳转，forward()指的是向前跳转，go()可以指定参数<br>看一下实际运用<br><img src="https://aiyaya122.oss-cn-hangzhou.aliyuncs.com/routermode2.gif" alt="history模式下的路由切换"><br>此外<code>history</code>模式有两个api是修改历史浏览记录的，可以这么理解，在浏览器上所有的浏览历史网址都被放在了一个栈中，当我们使用<code>pushState</code>和<code>replaceState</code>方法是，就是对历史浏览记录栈进行操作，<code>pushState</code>是往当前栈添加新的记录，<code>replaceState</code>是替换当前栈中的内容，实践一下</p>
 
       
     </div>
