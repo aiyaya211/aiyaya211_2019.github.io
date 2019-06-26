@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="哎呀呀">
 <meta property="og:description" content="接触项目以来一直用的是框架，原生很多东西很基础自己却没掌握好，总结一下关于dom事件。dom事件指的就是dom.Event,表示在dom 中发生的任何事件,大致可以包括：用户交互操作产生（例如鼠标或键盘事件），或者由 API 生成（例如指示动画已经完成运行的事件，视频已被暂停等等）。dom的事件流分为三个阶段：  捕获阶段：当我们在 DOM 树的某个节点发生了一些操作（例如单击、鼠标移动上去），就">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-26T05:01:49.295Z">
+<meta property="og:updated_time" content="2019-06-26T07:52:09.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于dom事件">
 <meta name="twitter:description" content="接触项目以来一直用的是框架，原生很多东西很基础自己却没掌握好，总结一下关于dom事件。dom事件指的就是dom.Event,表示在dom 中发生的任何事件,大致可以包括：用户交互操作产生（例如鼠标或键盘事件），或者由 API 生成（例如指示动画已经完成运行的事件，视频已被暂停等等）。dom的事件流分为三个阶段：  捕获阶段：当我们在 DOM 树的某个节点发生了一些操作（例如单击、鼠标移动上去），就">
@@ -347,10 +347,15 @@
 <li>捕获阶段：当我们在 DOM 树的某个节点发生了一些操作（例如单击、鼠标移动上去），就会有一个事件发射过去。这个事件从 Window 发出，不断经过下级节点直到触发的目标节点。在到达目标节点之前的过程，就是捕获阶段（Capture Phase）。事件由页面元素接收，逐级向下，到具体的元素。</li>
 <li>目标阶段：当事件不断的传递直到目标节点的时候，最终在目标节点上触发这个事件，就是目标阶段。具体的元素本身。</li>
 <li>冒泡阶段：事件冒泡即事件开始时，由最具体的元素接收（也就是事件发生所在的节点），然后逐级传播到较为不具体的节点。跟捕获相反，具体元素本身，逐级向上，到页面元素（我们平时用的事件绑定就是利用的事件冒泡的原理）。<blockquote>
-<p>事件捕获：当使用事件捕获时，父级元素先触发，子元素后触发。<br>事件冒泡：当使用事件冒泡时，子元素先触发，父元素后触发</p>
+<p>事件捕获：当使用事件捕获时，父级元素先触发，子元素后触发。<br>事件冒泡：当使用事件冒泡时，子元素先触发，父元素后触发<br>了解了事件的传递过程接下去看如何注册事件监听器，有三种注册事件监听器的方法<br>1.<code>EventTraget.addEventListener</code>平时使用中用的教多的一种方式，包含三个参数：监听事件的类型（比如click等），具体事件（一般是一个函数），冒泡或者捕获事件（默认为false冒泡）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>);</span><br><span class="line">	<span class="keyword">var</span> app1 = <span class="built_in">document</span>.getElementById(<span class="string">'app1'</span>);</span><br><span class="line">	app.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		alert(<span class="string">'我是父元素'</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">	app1.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		alert(<span class="string">'我是子元素'</span>)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ol>
+<p>测试一下假如改变最后一个参数为true<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>);</span><br><span class="line">	<span class="keyword">var</span> app1 = <span class="built_in">document</span>.getElementById(<span class="string">'app1'</span>);</span><br><span class="line">	app.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		alert(<span class="string">'我是父元素'</span>)</span><br><span class="line">	&#125;, <span class="literal">true</span>)</span><br><span class="line">	app1.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		alert(<span class="string">'我是子元素'</span>)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>事件处理成了捕获模式（这里有点迷）<br>2.利用html属性<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">'alert(123456)'</span>&gt;</span>我是按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>一般不建议使用<br>3.dom事件属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app1.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;alert(<span class="string">'第三种模式'</span>)&#125;</span><br></pre></td></tr></table></figure></p>
+<p>既然前面讲到了冒泡和捕获</p>
 
       
     </div>
