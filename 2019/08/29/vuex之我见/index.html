@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="tips,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -81,21 +81,14 @@
 
 
 
-<meta name="description" content="长期以来接触到的都是web网页端开发，很少做移动端开发，最近遇到了手机端safari浏览器的适配问题，顺带get一波移动端调试技巧。有一个很好用的工具vConsole安装1$ npm install vConsole 在vue项目中新建一个vconsole.js文件123import VConsole from &apos;VConsole&apos;let vConsole = new VConsole()expo">
-<meta name="keywords" content="tips">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何进行手机浏览器调试">
-<meta property="og:url" content="http://yoursite.com/2019/04/09/如何进行手机浏览器调试/index.html">
+<meta property="og:title" content="vuex之我见">
+<meta property="og:url" content="http://yoursite.com/2019/08/29/vuex之我见/index.html">
 <meta property="og:site_name" content="哎呀呀">
-<meta property="og:description" content="长期以来接触到的都是web网页端开发，很少做移动端开发，最近遇到了手机端safari浏览器的适配问题，顺带get一波移动端调试技巧。有一个很好用的工具vConsole安装1$ npm install vConsole 在vue项目中新建一个vconsole.js文件123import VConsole from &apos;VConsole&apos;let vConsole = new VConsole()expo">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://poz39fwk4.bkt.clouddn.com/mobile.jpg">
-<meta property="og:image" content="http://poz39fwk4.bkt.clouddn.com/mobile2.jpg">
-<meta property="og:updated_time" content="2019-04-10T13:14:29.615Z">
+<meta property="og:updated_time" content="2019-08-29T11:50:41.084Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何进行手机浏览器调试">
-<meta name="twitter:description" content="长期以来接触到的都是web网页端开发，很少做移动端开发，最近遇到了手机端safari浏览器的适配问题，顺带get一波移动端调试技巧。有一个很好用的工具vConsole安装1$ npm install vConsole 在vue项目中新建一个vconsole.js文件123import VConsole from &apos;VConsole&apos;let vConsole = new VConsole()expo">
-<meta name="twitter:image" content="http://poz39fwk4.bkt.clouddn.com/mobile.jpg">
+<meta name="twitter:title" content="vuex之我见">
 
 
 
@@ -125,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/09/如何进行手机浏览器调试/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/29/vuex之我见/">
 
 
 
 
 
-  <title>如何进行手机浏览器调试 | 哎呀呀</title>
+  <title>vuex之我见 | 哎呀呀</title>
   
 
 
@@ -268,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/如何进行手机浏览器调试/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/vuex之我见/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="aiyaya">
@@ -285,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">如何进行手机浏览器调试</h1>
+          <h1 class="post-title" itemprop="name headline">vuex之我见</h1>
         
 
         <div class="post-meta">
@@ -297,8 +290,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T22:38:35+08:00">
-                2019-04-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T19:50:41+08:00">
+                2019-08-29
               </time>
             
 
@@ -316,8 +309,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/04/09/如何进行手机浏览器调试/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/09/如何进行手机浏览器调试/" itemprop="commentCount"></span>
+                <a href="/2019/08/29/vuex之我见/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/29/vuex之我见/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -345,11 +338,7 @@
       
 
       
-        <p>长期以来接触到的都是web网页端开发，很少做移动端开发，最近遇到了手机端<code>safari</code>浏览器的适配问题，顺带get一波移动端调试技巧。<br>有一个很好用的工具<code>vConsole</code><br>安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install vConsole</span><br></pre></td></tr></table></figure></p>
-<p>在<code>vue</code>项目中新建一个<code>vconsole.js</code>文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VConsole <span class="keyword">from</span> <span class="string">'VConsole'</span></span><br><span class="line"><span class="keyword">let</span> vConsole = <span class="keyword">new</span> VConsole()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> vConsole</span><br></pre></td></tr></table></figure></p>
-<p>然后在<code>main.js</code>入口文件中全局引入<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vconsole <span class="keyword">from</span> <span class="string">'./utils/vconsole.js'</span></span><br></pre></td></tr></table></figure></p>
-<p>就可以调试用啦<br>效果如图：<br><img src="http://poz39fwk4.bkt.clouddn.com/mobile.jpg" alt="vconsole1"><br><img src="http://poz39fwk4.bkt.clouddn.com/mobile2.jpg" alt="vconsole2"></p>
-
+        
       
     </div>
     
@@ -364,12 +353,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/tips/" rel="tag"># tips</a>
-          
-        </div>
-      
 
       
       
@@ -379,8 +362,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/08/vue渲染函数/" rel="next" title="vue渲染函数">
-                <i class="fa fa-chevron-left"></i> vue渲染函数
+              <a href="/2019/06/26/关于dom事件/" rel="next" title="关于dom事件">
+                <i class="fa fa-chevron-left"></i> 关于dom事件
               </a>
             
           </div>
@@ -388,10 +371,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/12/防抖和节流/" rel="prev" title="防抖和节流">
-                防抖和节流 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
