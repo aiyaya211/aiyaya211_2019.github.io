@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="vue,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -81,21 +81,14 @@
 
 
 
-<meta name="description" content="今天看书的时候，留意到vue的侦听器watch有两个参数，但是看官网Api解释没看懂，也没有实践过，亲测一波先看官网定义deep  为了发现对象内部值的变化，可以在选项参数中指定 deep: true 。注意监听数组的变动不需要这么做。  watch是一个对象，里面存放要侦听的对象，这个被侦听的对象可以有多个属性，一个是侦听后的处理函数，还有就是今天要看的这两个参数，所谓发现对象内部值的变化，指的">
-<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue侦听器">
-<meta property="og:url" content="http://yoursite.com/2019/04/21/vue侦听器/index.html">
+<meta property="og:title" content="实现一个vue的$set">
+<meta property="og:url" content="http://yoursite.com/2019/10/13/实现一个vue的-set/index.html">
 <meta property="og:site_name" content="哎呀呀">
-<meta property="og:description" content="今天看书的时候，留意到vue的侦听器watch有两个参数，但是看官网Api解释没看懂，也没有实践过，亲测一波先看官网定义deep  为了发现对象内部值的变化，可以在选项参数中指定 deep: true 。注意监听数组的变动不需要这么做。  watch是一个对象，里面存放要侦听的对象，这个被侦听的对象可以有多个属性，一个是侦听后的处理函数，还有就是今天要看的这两个参数，所谓发现对象内部值的变化，指的">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/04/21/vue侦听器/vue2.gif">
-<meta property="og:image" content="http://yoursite.com/2019/04/21/vue侦听器/vue3.gif">
-<meta property="og:updated_time" content="2019-04-27T10:53:05.894Z">
+<meta property="og:updated_time" content="2019-10-13T14:47:19.001Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue侦听器">
-<meta name="twitter:description" content="今天看书的时候，留意到vue的侦听器watch有两个参数，但是看官网Api解释没看懂，也没有实践过，亲测一波先看官网定义deep  为了发现对象内部值的变化，可以在选项参数中指定 deep: true 。注意监听数组的变动不需要这么做。  watch是一个对象，里面存放要侦听的对象，这个被侦听的对象可以有多个属性，一个是侦听后的处理函数，还有就是今天要看的这两个参数，所谓发现对象内部值的变化，指的">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/21/vue侦听器/vue2.gif">
+<meta name="twitter:title" content="实现一个vue的$set">
 
 
 
@@ -125,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/21/vue侦听器/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/13/实现一个vue的-set/">
 
 
 
 
 
-  <title>vue侦听器 | 哎呀呀</title>
+  <title>实现一个vue的$set | 哎呀呀</title>
   
 
 
@@ -268,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/21/vue侦听器/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/13/实现一个vue的-set/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="aiyaya">
@@ -285,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue侦听器</h1>
+          <h1 class="post-title" itemprop="name headline">实现一个vue的$set</h1>
         
 
         <div class="post-meta">
@@ -297,8 +290,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-21T18:23:30+08:00">
-                2019-04-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-13T22:47:18+08:00">
+                2019-10-13
               </time>
             
 
@@ -316,8 +309,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/04/21/vue侦听器/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/21/vue侦听器/" itemprop="commentCount"></span>
+                <a href="/2019/10/13/实现一个vue的-set/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/13/实现一个vue的-set/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -345,15 +338,7 @@
       
 
       
-        <p>今天看书的时候，留意到<code>vue</code>的侦听器<code>watch</code>有两个参数，但是看官网<code>Api</code>解释没看懂，也没有实践过，亲测一波<br>先看官网定义<br><strong>deep</strong></p>
-<blockquote>
-<p>为了发现对象内部值的变化，可以在选项参数中指定 deep: true 。注意监听数组的变动不需要这么做。</p>
-</blockquote>
-<p><code>watch</code>是一个对象，里面存放要侦听的对象，这个被侦听的对象可以有多个属性，一个是侦听后的处理函数，还有就是今天要看的这两个参数，所谓发现对象内部值的变化，指的是侦听一个复杂对象，并处理对象属性，举个🌰</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;count&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="comment">// 侦听属性</span></span></span><br><span class="line"><span class="javascript">	<span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">		el: <span class="string">'#app'</span>,</span></span><br><span class="line"><span class="undefined">		data: &#123;</span></span><br><span class="line"><span class="undefined">			count: 0,</span></span><br><span class="line"><span class="undefined">			items: [&#123;</span></span><br><span class="line"><span class="undefined">				id: 1,</span></span><br><span class="line"><span class="javascript">				name: <span class="string">'蛋炒饭'</span>,</span></span><br><span class="line"><span class="undefined">				count: 1,</span></span><br><span class="line"><span class="undefined">				price: 5</span></span><br><span class="line"><span class="undefined">			&#125;,&#123;</span></span><br><span class="line"><span class="undefined">				id: 2,</span></span><br><span class="line"><span class="javascript">				name: <span class="string">'糖水'</span>,</span></span><br><span class="line"><span class="undefined">				count: 2,</span></span><br><span class="line"><span class="undefined">				price: 8</span></span><br><span class="line"><span class="undefined">			&#125;,&#123;</span></span><br><span class="line"><span class="undefined">				id: 3,</span></span><br><span class="line"><span class="javascript">				name: <span class="string">'排骨汤'</span>,</span></span><br><span class="line"><span class="undefined">				count: 5,</span></span><br><span class="line"><span class="undefined">				price: 10</span></span><br><span class="line"><span class="undefined">			&#125;]</span></span><br><span class="line"><span class="undefined">		&#125;,</span></span><br><span class="line"><span class="undefined">		watch: &#123;</span></span><br><span class="line"><span class="javascript">			<span class="string">"items"</span>: &#123;</span></span><br><span class="line"><span class="undefined">				handler() &#123;</span></span><br><span class="line"><span class="javascript">					<span class="built_in">console</span>.log(<span class="string">'数量变化'</span>)</span></span><br><span class="line"><span class="javascript">					<span class="keyword">this</span>.count = <span class="number">0</span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">this</span>.items.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">						<span class="keyword">this</span>.count += item.count</span></span><br><span class="line"><span class="undefined">					&#125;);</span></span><br><span class="line"><span class="undefined">				&#125;</span></span><br><span class="line"><span class="undefined">			&#125;,</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	&#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>修改下<code>items</code>的数据，看看效果<br><img src="/2019/04/21/vue侦听器/../vue侦听器/vue2.gif" alt="执行代码"><br>毫无波澜…🤦‍♂️</p>
-<p>那我们加一下<code>deep: true</code>试试<br><img src="/2019/04/21/vue侦听器/../vue侦听器/vue3.gif" alt="执行代码"><br>可以了，侦听器被触发了，接下去看下另一个参数<code>immediate</code>,顾名思义，就是立即执行，当<code>vue</code>被渲染的时候就会触发<code>watch</code></p>
-
+        
       
     </div>
     
@@ -368,12 +353,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/vue/" rel="tag"># vue</a>
-          
-        </div>
-      
 
       
       
@@ -383,8 +362,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/15/node爬虫初体验/" rel="next" title="node爬虫初体验">
-                <i class="fa fa-chevron-left"></i> node爬虫初体验
+              <a href="/2019/08/29/vuex之我见/" rel="next" title="vuex之我见">
+                <i class="fa fa-chevron-left"></i> vuex之我见
               </a>
             
           </div>
@@ -392,10 +371,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/12/关于路由/" rel="prev" title="关于路由">
-                关于路由 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
