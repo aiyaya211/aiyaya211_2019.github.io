@@ -91,7 +91,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://aiyaya122.oss-cn-hangzhou.aliyuncs.com/webpack1.jpg">
 <meta property="og:image" content="https://aiyaya122.oss-cn-hangzhou.aliyuncs.com/webpack3.png">
-<meta property="og:updated_time" content="2019-12-23T15:35:41.762Z">
+<meta property="og:updated_time" content="2019-12-24T13:05:00.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack初体验">
 <meta name="twitter:description" content="之前无论是新开始一个vue项目还是一个react项目，都是直接用的现成的脚手架，简单方便。最近在bilibili看react相关的视频，顺便也顺手学了把自己用webpack新建一个项目。使用一个新事物之前，先了解新事物出现的用途，webpack官方文档的解释：    webpack 是一个现代 JavaScript 应用程序的静态模块打包工具      我的理解，对于一个大型的项目来说，必然会应用">
@@ -358,7 +358,7 @@
 <li>新建项目文件<br>新建一个<code>src</code>文件夹，目录结构如下<br><img src="https://aiyaya122.oss-cn-hangzhou.aliyuncs.com/webpack3.png" alt="image"></li>
 <li>配置<code>webpack.conf.js</code><br><code>webpack</code>是基于<code>node</code>进行开发的，所以相关的语法也是用的<code>node</code>。</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 向外暴露一个模块</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	entry: __dirname + <span class="string">'/src/index.js'</span>,</span><br><span class="line">	output: &#123;</span><br><span class="line">		path: __dirname + <span class="string">'/public,</span></span><br><span class="line"><span class="string">		filename: index.js,</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 向外暴露一个模块</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	entry: __dirname + <span class="string">'/src/index.js'</span>,</span><br><span class="line">	output: &#123;</span><br><span class="line">		path: __dirname + <span class="string">'/public,</span></span><br><span class="line"><span class="string">		filename: '</span>index.js<span class="string">',</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>这段配置的本意是将此项目的入口文件从原本物理磁盘路径中的<code>src/index.js</code>，生成相应的内存文件<code>/public/index</code>，我们在目录下直接<code>webpack</code>命令之后，打开<code>index.html</code>发现报错了，找不到<code>public/index.js</code>。  </p>
 
       
