@@ -342,16 +342,10 @@
       
         
           
-          今天在看项目代码的时候，看到用了一个方法nzh()，baidu了一波，是npm的一个包，趁热打铁，学习一下关于nzhnzh这个包主要是用于数据转换的，把阿拉伯数字转换成中文，我们在项目中用到的情况还是挺多的按照教程 先安装这个node包1$ npm install nzh --save
-然后在vue
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/19/nzh的使用/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>今天在看项目代码的时候，看到用了一个方法nzh()，baidu了一波，是npm的一个包，趁热打铁，学习一下<br><a href="&quot;https://www.npmjs.com/package/nzh&quot;">关于nzh</a><br>nzh这个包主要是用于数据转换的，把阿拉伯数字转换成中文，我们在项目中用到的情况还是挺多的<br><img src="/2019/03/19/nzh的使用/nhz.jpg" alt="nzh的使用"><br>按照教程 先安装这个node包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install nzh --save</span><br></pre></td></tr></table></figure></p>
+<p>然后在vue组件中引入nzh这个包<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Nzh <span class="keyword">from</span> <span class="string">'nzh'</span></span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -479,18 +473,16 @@
       
         
           
-          根据官网文档进行hexo博客的搭建hexo安装之前，首先要确保自己的电脑有安装 Node.js 和 Git
-安装完Git和Node之后，只需要执行npm命令安装Hexo1$ npm install -g hexo-cli
-因为是全局的，经常会报权限错误，所以一般用 sudo
-接下来，就可以开始建站了
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/17/hexo博客搭建过程/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p><img src="http://poz39fwk4.bkt.clouddn.com/flower.jpeg" alt="春天"><br>根据官网文档进行hexo博客的搭建<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo</a><br>安装之前，首先要确保自己的电脑有安装 Node.js 和 Git<br><img src="http://poz39fwk4.bkt.clouddn.com/1.jpg" alt="检查是否安装Git和Node"></p>
+<p>安装完Git和Node之后，只需要执行npm命令安装Hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<p>因为是全局的，经常会报权限错误，所以一般用 <em>sudo</em></p>
+<p>接下来，就可以开始建站了，在本地新建一个文件夹，hexo初始化这个文件夹，并安装依赖包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir myblog</span><br><span class="line">$ <span class="built_in">cd</span> myblog</span><br><span class="line">$ hexo init</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>接下来，用hexo的启动命令，就可以在本地把我的博客跑起来啦！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
+<p>效果如图（不过这个是我之后已经开始写博客之后的了）<br><img src="http://poz39fwk4.bkt.clouddn.com/2.jpg" alt="效果图"></p>
+<p>为了执行方便，我把本地启动的两个脚本放到了<code>package.json</code>里面，运行的时候只要执行一个命令就可以了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run dev</span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -618,16 +610,9 @@
       
         
           
-          hello aiyaya!第一步总算完成，顺利把hexo博客放到了git上面，并能够通过git访问到了😄
+            <p>hello aiyaya!<br>第一步总算完成，顺利把hexo博客放到了git上面，并能够通过git访问到了😄</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/16/初来乍到/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -755,15 +740,17 @@
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/16/hello-world/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
         
       
     </div>
